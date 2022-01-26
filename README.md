@@ -4,7 +4,7 @@ laravel の勉強です。
 ## 環境構築
 | app        | url / other |
 |------------|-------------|
-| git bash   | https://gitforwindows.org/ |
+| git bash   | https://gitforwindows.org/ <br> git config  |
 | php(xampp) | https://www.apachefriends.org/download.html <br> 7.4.27 / PHP 7.4.27 <br> php.ini編集。date.timezone=Asia/Tokyo |
 | Composer   | http://laravel.jp/ <br> Composerで動く -> Download -> "Download and run Composer-Setup.exe ～" <br> (1)でインストールした php を指定、あとはデフォルトで next... -> Finish |
 | laravel    | https://readouble.com/laravel/4.2/ja/quick.html <br> composer global require "laravel/installer" |
@@ -21,6 +21,7 @@ laravel の勉強です。
 | Trailing Spaces        | 行末の無駄スペース検知 |
 | Laravel Blade Snippets | ※現行に合わせるため使用しない |
 | PHP DEBUG              | ※デバッガ。今回は使用しない |
+
 
 * Laravelプロジェクト作成
 
