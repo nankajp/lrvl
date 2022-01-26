@@ -31,6 +31,14 @@ composer create-project --prefer-dist laravel/laravel lrvl
 (1):zipでダウンロードするという意味。--prefer-source で git cloneだが当然面倒。
 (2):[vendor]/[package]
 (3):プロジェクト名
+
+※ファイル編集
+/config/app.php
+  'timezone' => 'Asia/Tokyo'
+  'locale'   => 'ja'
+
+※デバッガ
+composer require barryvdh/laravel-debugbar
 ```
 
 * アプリ起動
