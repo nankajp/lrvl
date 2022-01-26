@@ -26,7 +26,7 @@ date.timezone=Asia/Tokyo
 [core]
     ignorecase = false
     quotepath  = false
-	 autocrlf   = false
+    autocrlf   = false
 ```
 
 * VSCode Plugin
