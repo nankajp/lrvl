@@ -78,6 +78,33 @@ composer require barryvdh/laravel-debugbar
 ```
 
 ## アーキ
-* Redis, memcached, cassandra ローカルに構築
-* DB
+* Redis, memcached, cassandra, DB....
+
+* memcached
+
+https://pecl.php.net/package/memcache/4.0.5.2/windows
+
+ここからDLして、php.ini へ。extension=php_memcache.dll を追加。
+
+```
+失敗メモ
+http://spench.net/drupal/software/tokyocabinet
+32bitだから無理だった。64bit化するにもエラーがいろいろ出てきつい。
+memcachedに差し替えて動作確認すればよいか...
+
+https://pecl.php.net/package/memcached
+server資材？
+https://github.com/nono303/PHP-memcache-dll/blob/master/vc15/x64/ts/php-7.4.x_memcache.dll
+dll代理？
+```
+
+* 500エラーで画面に全部出ちゃうのを抑える。.env
+
+```
+APP_DEBUG=true
+```
+
+error画面への制御は？
+
+* test方法
 

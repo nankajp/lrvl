@@ -50,15 +50,15 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['single'],
+            'channels' => ['daily'],
             'ignore_exceptions' => false,
         ],
 
-        'single' => [
-            'driver' => 'single',
-            'path' => storage_path('logs/laravel.log'),
-            'level' => env('LOG_LEVEL', 'debug'),
-        ],
+        // 'single' => [
+        //     'driver' => 'single',
+        //     'path' => storage_path('logs/laravel.log'),
+        //     'level' => env('LOG_LEVEL', 'debug'),
+        // ],
 
         'daily' => [
             'driver' => 'daily',
@@ -67,52 +67,52 @@ return [
             'days' => 14,
         ],
 
-        'slack' => [
-            'driver' => 'slack',
-            'url' => env('LOG_SLACK_WEBHOOK_URL'),
-            'username' => 'Laravel Log',
-            'emoji' => ':boom:',
-            'level' => env('LOG_LEVEL', 'critical'),
-        ],
+        // 'slack' => [
+        //     'driver' => 'slack',
+        //     'url' => env('LOG_SLACK_WEBHOOK_URL'),
+        //     'username' => 'Laravel Log',
+        //     'emoji' => ':boom:',
+        //     'level' => env('LOG_LEVEL', 'critical'),
+        // ],
 
-        'papertrail' => [
-            'driver' => 'monolog',
-            'level' => env('LOG_LEVEL', 'debug'),
-            'handler' => SyslogUdpHandler::class,
-            'handler_with' => [
-                'host' => env('PAPERTRAIL_URL'),
-                'port' => env('PAPERTRAIL_PORT'),
-            ],
-        ],
+        // 'papertrail' => [
+        //     'driver' => 'monolog',
+        //     'level' => env('LOG_LEVEL', 'debug'),
+        //     'handler' => SyslogUdpHandler::class,
+        //     'handler_with' => [
+        //         'host' => env('PAPERTRAIL_URL'),
+        //         'port' => env('PAPERTRAIL_PORT'),
+        //     ],
+        // ],
 
-        'stderr' => [
-            'driver' => 'monolog',
-            'level' => env('LOG_LEVEL', 'debug'),
-            'handler' => StreamHandler::class,
-            'formatter' => env('LOG_STDERR_FORMATTER'),
-            'with' => [
-                'stream' => 'php://stderr',
-            ],
-        ],
+        // 'stderr' => [
+        //     'driver' => 'monolog',
+        //     'level' => env('LOG_LEVEL', 'debug'),
+        //     'handler' => StreamHandler::class,
+        //     'formatter' => env('LOG_STDERR_FORMATTER'),
+        //     'with' => [
+        //         'stream' => 'php://stderr',
+        //     ],
+        // ],
 
-        'syslog' => [
-            'driver' => 'syslog',
-            'level' => env('LOG_LEVEL', 'debug'),
-        ],
+        // 'syslog' => [
+        //     'driver' => 'syslog',
+        //     'level' => env('LOG_LEVEL', 'debug'),
+        // ],
 
-        'errorlog' => [
-            'driver' => 'errorlog',
-            'level' => env('LOG_LEVEL', 'debug'),
-        ],
+        // 'errorlog' => [
+        //     'driver' => 'errorlog',
+        //     'level' => env('LOG_LEVEL', 'debug'),
+        // ],
 
-        'null' => [
-            'driver' => 'monolog',
-            'handler' => NullHandler::class,
-        ],
+        // 'null' => [
+        //     'driver' => 'monolog',
+        //     'handler' => NullHandler::class,
+        // ],
 
-        'emergency' => [
-            'path' => storage_path('logs/laravel.log'),
-        ],
+        // 'emergency' => [
+        //     'path' => storage_path('logs/laravel.log'),
+        // ],
     ],
 
 ];
