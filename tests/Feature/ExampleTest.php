@@ -8,7 +8,7 @@ use Tests\TestCase;
 class ExampleTest extends TestCase
 {
     /**
-     * A basic test example.
+     * 1. A basic test example.
      *
      * @return void
      */
@@ -17,5 +17,17 @@ class ExampleTest extends TestCase
         $response = $this->get('/');
 
         $response->assertStatus(200);
+    }
+
+    /**
+     * 2.ルーティング外リクエスト
+     * @test
+     * @return void
+     */
+    public function noRoute()
+    {
+        $response = $this->get('/xxx');
+        // verify
+        $response->assertStatus(404);
     }
 }

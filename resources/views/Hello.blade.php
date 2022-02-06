@@ -5,6 +5,7 @@
     </head>
     <body>
         <!-- @csrf -->
+        
         <div>{{ $test }}</div>
     </body>
 </html>

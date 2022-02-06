@@ -108,3 +108,10 @@ error画面への制御は？
 
 * test方法
 
+```
+php artisan make:test xxxControllerTest
+
+php artisan test
+
+php artisan test --filter xxxControllerTest
+```
