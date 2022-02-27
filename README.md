@@ -1,16 +1,19 @@
 # 概要
 laravel の勉強です。
 
-## 環境構築
+* PHP 8.1
+* Laravel 8.81.0
+
+
+## 1. 環境構築
 | app        | url / other |
 |------------|-------------|
 | git bash   | https://gitforwindows.org/ |
 | php(xampp) | https://www.apachefriends.org/download.html <br> 7.4.27 / PHP 7.4.27 |
-| Composer   | http://laravel.jp/ <br> Composerで動く -> Download -> "Download and run Composer-Setup.exe ～" <br> (1)でインストールした php を指定、あとはデフォルトで next... -> Finish |
-| laravel    | https://readouble.com/laravel/4.2/ja/quick.html <br> composer global require "laravel/installer" |
+| Composer   | https://getcomposer.org/download/ <br> 上記でインストールした php を指定、後はデフォルト |
 | VSCode     | https://azure.microsoft.com/ja-jp/products/visual-studio-code/ |
 
-### カスタマイズ
+### 1-1.各種設定
 * 環境変数Pathに、php と composerが通っていることを確認する
 
 * php.ini 編集（C:\xampp\php）
@@ -39,10 +42,8 @@ date.timezone=Asia/Tokyo
 | Highlight Matching Tag | htmlタグ強調表示 |
 | Indent-Rainbow         | インデントをカラフル表示 |
 | Trailing Spaces        | 行末の無駄スペース検知 |
-| Laravel Blade Snippets | ※現行に合わせるため使用しない |
-| PHP DEBUG              | ※デバッガ。今回は使用しない |
 
-* Laravelプロジェクト作成
+## Laravelプロジェクト作成
 
 ```
 cd c:\xxx
@@ -68,16 +69,84 @@ composer create-project --prefer-dist laravel/laravel lrvl
 composer require barryvdh/laravel-debugbar
 ```
 
-* アプリ起動
-```
-1. xampp で、apache の START を押下
-2. アプリケーション起動コマンド実行
-   php artisan serve
-3. 表示確認
-   http://localhost:8000/
-```
-
 ## アーキ
-* Redis, memcached, cassandra ローカルに構築
-* DB
 
+* ドキュメント
+
+https://readouble.com/laravel/8.x/ja/
+
+公式リファレンスもそうだが、以下Qiitaはよくまとまっていて勉強になる！
+
+https://qiita.com/minato-naka/items/095f2a1beec1d09f423e
+
+
+* memcached
+
+1. windows 向け dll設定は以下を参考にする。
+https://github.com/lifenglsf/php_memcached_dll
+
+php.ini の ext も要追記。
+
+~ここからDLして、php.ini へ。extension=php_memcache.dll を追加。~
+~ https://pecl.php.net/package/memcache/4.0.5.2/windows ~
+
+2. exeの実行（資材）
+
+```
+どこかに memcache exe が
+```
+
+
+## 開発
+* アプリ起動（ローカル動作＝apacheなし）
+```
+php artisan serve
+
+http://localhost:8000/
+http://localhost:8000/hello
+```
+
+* リリース（apache動作）
+```
+xampp で、apache の START を押下
+
+https://rinsaka.com/laravel/apache.html
+
+
+http://localhost:8000/
+http://localhost:8000/hello
+```
+
+* Controller生成
+```
+php artisan make:controller xxxController
+```
+
+* PHPUnit
+```
+php artisan make:test xxxControllerTest
+
+php artisan test
+
+php artisan test --filter xxxControllerTest
+```
+
+# TODO
+
+* .env切り替え
+
+500エラーで画面に全部出ちゃうのを抑える。
+
+```
+APP_DEBUG=true
+```
+
+```
+.env
+Laravel例外
+config
+php.ini
+log
+httpd.cdonf 6->9
+git cicd
+```
